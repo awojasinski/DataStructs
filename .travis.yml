@@ -9,20 +9,30 @@ compiler:
   - gcc
   - g++
   
+addons:
+  apt:
+    packages:
+      - python-yaml
+      - lcov
+      - libopencv-dev
+    sources:
+      - ubuntu-toolchain-r-test
 
-      
+
 before_script:
-  - sudo apt-get update
-  - sudo apt-get install gcc --only-upgrade
-  - sudo apt-get install g++ --only-upgrade
+  - sudo pip install codecov
+  #- sudo apt-get update
+  #- sudo apt-get install gcc --only-upgrade
+  #- sudo apt-get install g++ --only-upgrade
   # create a build folder for the out-of-source build
   - mkdir build
   # switch to build directory
   - cd build
 
 script:
-  # Check versions of gcc, g++ and cmake
-  - gcc -v && g++ -v && cmake --version
-  # Run your build commands next
+  # Run your build commands
   - cmake ..
   - make
+
+after_success:
+    - codecov -t 85d17b4e-7469-40be-927a-004fc813c966 -X gcov
