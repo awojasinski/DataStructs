@@ -1,20 +1,19 @@
 dist: trusty
 sudo: required
+
 language:
   - cpp
   - c
 compiler:
   - gcc
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - gcc
-      - g++
-      - cmake
+  - g++
+  
+
       
 before_script:
+  - sudo apt-get update
+  - sudo apt-get install gcc --only-upgrade
+  - sudo apt-get install g++ --only-upgrade
   # create a build folder for the out-of-source build
   - mkdir build
   # switch to build directory
