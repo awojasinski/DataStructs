@@ -35,5 +35,4 @@ script:
   - make
 
 after_success:
-    - codecov -t 85d17b4e-7469-40be-927a-004fc813c966 -X gcov
     - bash <(curl -s https://codecov.io/bash)
