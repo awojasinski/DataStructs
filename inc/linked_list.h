@@ -17,7 +17,7 @@ typedef struct ll_t {
 
 void push_front(ll_t *list);
 void push_back(ll_t *list);
-void insert_node(ll_t *list, );
+void insert_node(ll_t *list);
 
 Node_t *pop_front(ll_t *list);
 Node_t *pop_back(ll_t *list);
