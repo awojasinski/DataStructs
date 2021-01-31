@@ -33,7 +33,7 @@ script:
   # Run your build commands
   - cmake ..
   - make
-  - ctest -V
+  - ctest -V -T test -T coverage
 
 
 after_success:

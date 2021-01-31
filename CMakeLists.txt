@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_C_COMPILER "gcc")
 set(CMAKE_CXX_COMPILER "g++")
 
+SET(CMAKE_CXX_FLAGS "-coverage -fprofile-arcs -ftest-coverage")
+SET(CMAKE_C_FLAGS "-coverage -fprofile-arcs -ftest-coverage")
+SET(CMAKE_EXE_LINKER_FLAGS    "-coverage -lgcov")
+
 set(CMAKE_C_STANDARD 11)
 
 # Download and unpack googletest at configure time
@@ -40,13 +44,9 @@ file(GLOB SRCS
     "${PROJECT_SOURCE_DIR}/src/*.c"
     "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
-enable_testing()
 add_subdirectory(test)
 
 add_executable(${PROJECT_NAME} ${SRCS})
 
-set_target_properties(${PROJECT_NAME}
-    PROPERTIES
-    COMPILE_FLAGS "-Wall -ftest-coverage -fprofile-arcs"
-    LINK_FLAGS    "-lgcov --coverage"
-)
+include(CTest)
+set(CTEST_COVERAGE_COMMAND "gcov")
