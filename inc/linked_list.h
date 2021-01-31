@@ -15,7 +15,7 @@ typedef struct ll_t {
     size_t size;
 }ll_t;
 
-extern ll_t* createLL();
+extern static inline ll_t* createLL();
 size_t sizeLL(ll_t *list);
 
 void push_front(ll_t *list, int data);
