@@ -33,6 +33,8 @@ script:
   # Run your build commands
   - cmake ..
   - make
+  - ctest -V
+
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
