@@ -141,3 +141,6 @@ void destroy_node(ll_t *list, size_t n) {
     list->size--; 
 }
 
+int widget_ok(int a, int b) {
+    return a+b == 5;
+}

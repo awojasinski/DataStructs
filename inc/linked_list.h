@@ -43,4 +43,6 @@ Node_t *get(ll_t *list, size_t n);
 void destroy_list(ll_t *list);
 void destroy_node(ll_t *list, size_t n);
 
+int widget_ok(int, int);
+
 #endif
