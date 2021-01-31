@@ -84,7 +84,7 @@ void pop_back(ll_t *list) {
     }
     if (list->end == list->begin) {
         free(list->begin);
-        list->end = NULL
+        list->end = NULL;
     }
     else {
         Node_t *temp = list->begin;
