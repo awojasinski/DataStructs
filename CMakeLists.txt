@@ -5,9 +5,6 @@ set(CMAKE_CXX_COMPILER "g++")
 
 set(CMAKE_C_STANDARD 11)
 
-set(CMAKE_CXX_FLAGS "-Wall -O0 -ftest-coverage")
-set(CMAKE_C_FLAGS "-Wall -O0 -ftest-coverage")
-
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
@@ -48,3 +45,8 @@ add_subdirectory(test)
 
 add_executable(${PROJECT_NAME} ${SRCS})
 
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    COMPILE_FLAGS "-Wall -ftest-coverage -fprofile-arcs"
+    LINK_FLAGS    "-lgcov --coverage"
+)
