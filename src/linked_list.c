@@ -3,16 +3,6 @@
 #include "linked_list.h"
 
 
-static inline ll_t* createLL() {
-    ll_t *list = (ll_t*)malloc(sizeof(ll_t));
-    list->begin = NULL;
-    list->end = NULL;
-    list->size = 0;
-
-    return list;
-}
-
-
 size_t sizeLL(ll_t *list) {
     return list->size;
 }
