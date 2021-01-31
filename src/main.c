@@ -2,6 +2,7 @@
 #include "type_name.h"
 
 int main(void) {
-    int *x;
+    int y = 5;
+    int *x = &y;
     printf("%p is type of %s", x, type_name((void *)x));
 }

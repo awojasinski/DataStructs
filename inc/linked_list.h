@@ -2,7 +2,7 @@
 #define LINKED_LIST_H
 
 #define ll_foreach(list, item) \
-        for(Node_t item=list->begin; item; item=next(item))
+        for(Node_t item=list->begin; item; item=item->next)
 
 typedef struct Node_t {
     int data;
@@ -15,9 +15,12 @@ typedef struct ll_t {
     size_t size;
 }ll_t;
 
-void push_front(ll_t *list);
-void push_back(ll_t *list);
-void insert_node(ll_t *list);
+extern ll_t* createLL();
+size_t sizeLL(ll_t *list);
+
+void push_front(ll_t *list, int data);
+void push_back(ll_t *list, int data);
+void insert_node(ll_t *list, int data, size_t n);
 
 Node_t *pop_front(ll_t *list);
 Node_t *pop_back(ll_t *list);
