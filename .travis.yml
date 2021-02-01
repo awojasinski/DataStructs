@@ -14,7 +14,7 @@ addons:
     packages:
       - python-yaml
       - lcov
-      - libopencv-dev
+      - gcov
     sources:
       - ubuntu-toolchain-r-test
 
@@ -37,4 +37,4 @@ script:
 
 
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)
