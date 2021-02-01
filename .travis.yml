@@ -14,7 +14,6 @@ addons:
     packages:
       - python-yaml
       - lcov
-      - gcov
     sources:
       - ubuntu-toolchain-r-test
 
